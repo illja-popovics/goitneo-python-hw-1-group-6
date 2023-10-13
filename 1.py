@@ -7,9 +7,12 @@ def get_birthdays_per_week(users):
         "Wednesday": [],
         "Thursday": [],
         "Friday": [],
+<<<<<<< HEAD:main.py
         "Saturday": [],
         "Sunday": [],
         "Next Monday": [],
+=======
+>>>>>>> 9bffce75b2be33ae6eb7dfd4f96e7c6161479425:1.py
     }
 
     today = datetime.now().date()
@@ -26,8 +29,16 @@ def get_birthdays_per_week(users):
 
         if 0 <= delta_days < 7:
             day_of_week = (today + timedelta(days=delta_days)).strftime("%A")
+<<<<<<< HEAD:main.py
             if day_of_week in ["Saturday", "Sunday"]:
                 birthdays_per_week["Next Monday"].append(name)
+=======
+            if day_of_week == "Saturday" and current_weekday != 0:
+                birthdays_per_week["Monday"].append(name)
+            elif day_of_week == "Sunday" and current_weekday != 0:
+                next_monday = today + timedelta(days=(7 - current_weekday) + 2)
+                birthdays_per_week["Monday"].append(name)
+>>>>>>> 9bffce75b2be33ae6eb7dfd4f96e7c6161479425:1.py
             else:
                 birthdays_per_week[day_of_week].append(name)
 
